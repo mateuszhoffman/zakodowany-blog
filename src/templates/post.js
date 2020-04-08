@@ -21,7 +21,7 @@ export const BlogPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <img src={image} />
+            <img src={image ? image.source_url : ''} />
             <div dangerouslySetInnerHTML={{ __html: content }} />
             <div style={{ marginTop: `4rem` }}>
               <p>
@@ -76,7 +76,7 @@ const BlogPost = ({ data }) => {
       <BlogPostTemplate
         content={post.content}
         categories={post.categories}
-        image={post.featured_media.source_url}
+        image={post.featured_media}
         tags={post.tags}
         title={post.title}
         date={post.date}
