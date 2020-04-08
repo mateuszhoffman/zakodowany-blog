@@ -24,7 +24,7 @@ export default class IndexPage extends React.Component {
                 </Link>
                 <span> &bull; </span>
                 <small>
-                  {post.date} - posted by{' '}
+                  {post.date} - opublikowane przez{' '}
                   <Link to={`/author/${post.author.slug}`}>
                     {post.author.name}
                   </Link>
@@ -32,12 +32,13 @@ export default class IndexPage extends React.Component {
               </p>
               <div>
                 <div
+                  className="post-preview__description"
                   dangerouslySetInnerHTML={{
                     __html: post.excerpt.replace(/<p class="link-more.*/, ''),
                   }}
                 />
-                <Link className="button is-small" to={post.slug}>
-                  Keep Reading →
+                <Link className="btn btn-grey btn-large" to={post.slug}>
+                  Czytaj Dalej →
                 </Link>
               </div>
             </div>

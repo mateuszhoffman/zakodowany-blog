@@ -7,6 +7,7 @@ import Layout from '../components/Layout'
 export const BlogPostTemplate = ({
   content,
   categories,
+  image,
   tags,
   title,
   date,
@@ -20,15 +21,16 @@ export const BlogPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
+            <img src={image} />
             <div dangerouslySetInnerHTML={{ __html: content }} />
             <div style={{ marginTop: `4rem` }}>
               <p>
-                {date} - posted by{' '}
+                {date} - opublikowane przez{' '}
                 <Link to={`/author/${author.slug}`}>{author.name}</Link>
               </p>
               {categories && categories.length ? (
                 <div>
-                  <h4>Categories</h4>
+                  <h4>Kategorie</h4>
                   <ul className="taglist">
                     {categories.map(category => (
                       <li key={`${category.slug}cat`}>
@@ -42,7 +44,7 @@ export const BlogPostTemplate = ({
               ) : null}
               {tags && tags.length ? (
                 <div>
-                  <h4>Tags</h4>
+                  <h4>Tagi</h4>
                   <ul className="taglist">
                     {tags.map(tag => (
                       <li key={`${tag.slug}tag`}>
@@ -70,10 +72,11 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout>
-      <Helmet title={`${post.title} | Blog`} />
+      <Helmet title={`${post.title} | Zakodowany Blog`} />
       <BlogPostTemplate
         content={post.content}
         categories={post.categories}
+        image={post.featured_media.source_url}
         tags={post.tags}
         title={post.title}
         date={post.date}
@@ -104,8 +107,11 @@ export const pageQuery = graphql`
       id
       title
       slug
-      content
+      content: excerpt
       date(formatString: "MMMM DD, YYYY")
+      featured_media {
+        source_url
+      }
       categories {
         name
         slug
