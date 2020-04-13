@@ -1,28 +1,36 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import Container from '../components/Container'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { Normalize } from 'styled-normalize'
+import Header from '../components/Header'
 
-const Container = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Rubik', sans-serif;
+    color: #1D2020;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+  }
 `
 
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet title="Zakodowany by Mateusz Hoffman" />
-    <Helmet>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
-        rel="stylesheet"
-      />
-    </Helmet>
     <Normalize />
-    <Navbar />
+    <GlobalStyle />
+    <Header />
+
     <Container>{children}</Container>
     <Footer />
   </div>
