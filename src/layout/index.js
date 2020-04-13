@@ -1,9 +1,16 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import Navbar from './Navbar'
-import Footer from './Footer'
-import './all.scss'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+
+import styled from 'styled-components'
+import { Normalize } from 'styled-normalize'
+
+const Container = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+`
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -14,8 +21,9 @@ const TemplateWrapper = ({ children }) => (
         rel="stylesheet"
       />
     </Helmet>
+    <Normalize />
     <Navbar />
-    <div className="container">{children}</div>
+    <Container>{children}</Container>
     <Footer />
   </div>
 )

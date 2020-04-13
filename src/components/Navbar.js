@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import search from '../img/search-icon.svg'
+
+import colors from '../styles/colors'
 
 const Navbar = () => (
   <StaticQuery
@@ -17,9 +18,9 @@ const Navbar = () => (
       }
     `}
     render={data => (
-      <header>
+      <header className="app-header">
         <nav className="navbar">
-          <div className="container d-flex">
+          <div className="d-flex f-space-between">
             <div className="navbar-brand">
               <Link to="/" className="navbar-item">
                 <div className="brand">Zakodowany</div>
