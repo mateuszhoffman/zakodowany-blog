@@ -15,13 +15,21 @@ module.exports = {
         useACF: false,
         auth: {},
         // Set to true to debug endpoints on 'gatsby build'
-        verboseOutput: true,
+        verboseOutput: false,
       },
     },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GA_TAG,
+        head: false,
+        anonymize: false,
       },
     },
     'gatsby-plugin-sharp',
