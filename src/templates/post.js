@@ -22,8 +22,7 @@ export const BlogPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <Image fluid={image.localFile.childImageSharp.fluid} />
-
+            {image && <Image fluid={image.localFile.childImageSharp.fluid} />}
             <div dangerouslySetInnerHTML={{ __html: content }} />
             <div style={{ marginTop: `4rem` }}>
               <p>
