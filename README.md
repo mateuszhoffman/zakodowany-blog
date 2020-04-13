@@ -12,4 +12,4 @@ Personal blog application used as a WP data consumer - built using power of Reac
 
 ## Authors
 
-- **Mateusz Hoffman** - _Main Developer_ - [mateuszhoffman](https://github.com/mateuszhoffman)
+- **Mateusz Hoffman** - [mateuszhoffman](https://github.com/mateuszhoffman)
