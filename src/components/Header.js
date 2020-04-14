@@ -6,15 +6,21 @@ import Container from './Container'
 import styled from 'styled-components'
 import siteLogo from '../assets/zakodowany-logo.svg'
 
-const HeaderWrapper = styled(Container)`
+const HeaderWrapper = styled.header`
+  border-bottom: 1px solid #f7f7f7;
+  width: 100%;
+  background: #ffffff;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+`
+
+const HeaderInner = styled(Container)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
-
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  width: 100%;
 `
 
 const Header = () => (
@@ -33,8 +39,10 @@ const Header = () => (
     `}
     render={data => (
       <HeaderWrapper>
-        <NavBrand logo={siteLogo} />
-        <Navbar data={data} />
+        <HeaderInner>
+          <NavBrand logo={siteLogo} />
+          <Navbar data={data} />
+        </HeaderInner>
       </HeaderWrapper>
     )}
   />
@@ -47,21 +55,26 @@ const NavBrand = ({ logo }) => (
 )
 
 const NavbarItem = styled(Link)`
+  display: flex;
+  align-items: center;
   color: #191919;
-  padding: 5px 0px;
-  margin: 0 12px;
-  border-bottom: 2px solid transparent;
+  padding: 0 15px;
+
   outline: none;
+  height: 100px;
   text-decoration: none;
-  text-transform: uppercase;
 
   &:hover {
-    border-bottom: 2px solid #191919;
   }
 `
 
+const NavbarLinks = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
 const Navbar = ({ data }) => (
-  <div className="navbar-links">
+  <NavbarLinks>
     {data.allWordpressPage.edges.map(edge => (
       <NavbarItem
         className="navbar-item"
@@ -71,7 +84,7 @@ const Navbar = ({ data }) => (
         {edge.node.title}
       </NavbarItem>
     ))}
-  </div>
+  </NavbarLinks>
 )
 
 export default Header

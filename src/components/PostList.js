@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Image from 'gatsby-image'
@@ -6,21 +6,21 @@ import Image from 'gatsby-image'
 import Truncate from 'react-truncate'
 import styled from 'styled-components'
 
+import Container from './Container'
+
 export default class IndexPage extends React.Component {
   render() {
     const { posts, title } = this.props
 
     return (
-      <section className="section">
-        <div className="container">
-          <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">{title}</h1>
-          </div>
-          {posts.map(({ node: post }) => (
-            <PostItem post={post} key={post.id} />
-          ))}
+      <Fragment>
+        <div className="content">
+          <h1 className="has-text-weight-bold is-size-2">{title}</h1>
         </div>
-      </section>
+        {posts.map(({ node: post }) => (
+          <PostItem post={post} key={post.id} />
+        ))}
+      </Fragment>
     )
   }
 }

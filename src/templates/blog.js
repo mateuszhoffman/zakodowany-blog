@@ -2,8 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../layout'
+import Container from '../components/Container'
 import PostList from '../components/PostList'
 import Pagination from '../components/Pagination'
+
+import styled from 'styled-components'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -12,8 +15,13 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <PostList posts={posts} title="Ostatnie wpisy" />
-        <Pagination pageContext={pageContext} pathPrefix="/" />
+        <Container>
+          <ContentSide>
+            <PostList posts={posts} title="Ostatnie wpisy" />
+            <Pagination pageContext={pageContext} pathPrefix="/" />
+          </ContentSide>
+          <Sidebar>Tu</Sidebar>
+        </Container>
       </Layout>
     )
   }
@@ -30,6 +38,14 @@ IndexPage.propTypes = {
     numPages: PropTypes.number,
   }),
 }
+
+const ContentSide = styled.div`
+  width: 66.666667%;
+`
+
+const Sidebar = styled.div`
+  width: 33.333333%;
+`
 
 export const pageQuery = graphql`
   query IndexQuery($limit: Int!, $skip: Int!) {

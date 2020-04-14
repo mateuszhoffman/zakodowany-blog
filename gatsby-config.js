@@ -29,7 +29,7 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Rubik`,
+            family: `Roboto`,
             variants: [`400`, `500`, `700`],
           },
         ],

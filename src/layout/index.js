@@ -10,8 +10,16 @@ import { Normalize } from 'styled-normalize'
 import Header from '../components/Header'
 
 const GlobalStyle = createGlobalStyle`
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   body {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background: #f7f9fb;
     color: #1D2020;
   }
 
@@ -19,9 +27,21 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    padding: 0;
+    margin: 0;
+  }
+
   img {
     max-width: 100%;
   }
+`
+
+const SectionWrapper = styled.section`
+  padding: 50px 0;
 `
 
 const TemplateWrapper = ({ children }) => (
@@ -30,8 +50,7 @@ const TemplateWrapper = ({ children }) => (
     <Normalize />
     <GlobalStyle />
     <Header />
-
-    <Container>{children}</Container>
+    <SectionWrapper>{children}</SectionWrapper>
     <Footer />
   </div>
 )
