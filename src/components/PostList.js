@@ -10,13 +10,10 @@ import Container from './Container'
 
 export default class IndexPage extends React.Component {
   render() {
-    const { posts, title } = this.props
+    const { posts } = this.props
 
     return (
       <Fragment>
-        <div className="content">
-          <h1 className="has-text-weight-bold is-size-2">{title}</h1>
-        </div>
         {posts.map(({ node: post }) => (
           <PostItem post={post} key={post.id} />
         ))}
@@ -29,11 +26,10 @@ const PostItemWrapper = styled.div`
   display: flex;
   flex-direction: row;
   height: 200px;
-  margin: 30px 0;
+  margin-bottom: 30px;
 `
 
 const PostItemImage = styled(Image)`
-  border-radius: 8px;
   min-width: 300px;
 `
 

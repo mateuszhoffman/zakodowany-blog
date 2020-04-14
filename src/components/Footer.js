@@ -10,7 +10,7 @@ const FooterWrapper = styled.div`
 
 const Footer = () => (
   <FooterWrapper>
-    <Container>Hello</Container>
+    <Container>© Zakodowany 2020 Wszelkie prawa zastrzeżone</Container>
   </FooterWrapper>
 )
 

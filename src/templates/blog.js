@@ -15,13 +15,24 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <Container>
+        <BlogInner>
           <ContentSide>
             <PostList posts={posts} title="Ostatnie wpisy" />
             <Pagination pageContext={pageContext} pathPrefix="/" />
           </ContentSide>
-          <Sidebar>Tu</Sidebar>
-        </Container>
+          <Sidebar>
+            <WidgetWrapper>
+              <h2>About me</h2>
+              <br />
+              <img
+                width="200px"
+                src="https://pbs.twimg.com/profile_images/1247444310758428672/4yNzlvE2_400x400.jpg"
+              />
+              <br />
+              <p>Hello, I'm Mateusz 👋</p>
+            </WidgetWrapper>
+          </Sidebar>
+        </BlogInner>
       </Layout>
     )
   }
@@ -39,12 +50,30 @@ IndexPage.propTypes = {
   }),
 }
 
+const BlogInner = styled(Container)`
+  display: flex;
+  flex-direction: row;
+`
+
 const ContentSide = styled.div`
+  padding: 0 15px;
   width: 66.666667%;
 `
 
 const Sidebar = styled.div`
+  padding: 0 15px;
   width: 33.333333%;
+`
+
+const WidgetWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0.707px 0.707px 7px 0px rgba(0, 0, 0, 0.1);
+  padding: 50px 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
 `
 
 export const pageQuery = graphql`
