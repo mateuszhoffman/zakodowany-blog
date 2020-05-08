@@ -17,9 +17,10 @@ const PostCard = ({ post }) => (
     </div>
     <div className="post-card__body flex">
       <div className="post-card__meta flex">
-        {post.categories.map(category => (
-          <div className="category-badge">{category.name}</div>
-        ))}
+        {post.categories &&
+          post.categories.map(category => (
+            <div className="category-badge">{category.name}</div>
+          ))}
         <div className="post-date">{post.date}</div>
       </div>
 
