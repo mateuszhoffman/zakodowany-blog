@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 
-import colors from '../styles/colors'
-
 const Navbar = () => (
   <StaticQuery
     query={graphql`
