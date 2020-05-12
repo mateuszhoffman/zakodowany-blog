@@ -1,76 +1,23 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
-import Image from 'gatsby-image'
-
-import Truncate from 'react-truncate'
-import styled from 'styled-components'
-
-import Container from './Container'
+import PostCard from './PostCard'
 
 export default class IndexPage extends React.Component {
   render() {
     const { posts } = this.props
 
     return (
-      <Fragment>
-        {posts.map(({ node: post }) => (
-          <PostItem post={post} key={post.id} />
-        ))}
-      </Fragment>
+      <div className="container">
+        <section>
+          {posts.map(({ node: post }) => (
+            <PostCard post={post} key={post.id} />
+          ))}
+        </section>
+      </div>
     )
   }
 }
-
-const PostItemWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 200px;
-  margin-bottom: 30px;
-`
-
-const PostItemImage = styled(Image)`
-  min-width: 300px;
-`
-
-const PostItemContent = styled.div`
-  padding-left: 2.5rem;
-`
-
-const PostItem = ({ post }) => (
-  <PostItemWrapper>
-    {post.featured_media && (
-      <PostItemImage
-        fluid={post.featured_media.localFile.childImageSharp.fluid}
-      />
-    )}
-    <PostItemContent>
-      <h3>{post.title}</h3>
-      <small>
-        {post.date} - opublikowane przez{' '}
-        <Link to={`/author/${post.author.slug}`}>{post.author.name}</Link>
-      </small>
-      <div>
-        <Truncate lines={3} ellipsis={<span>...</span>}>
-          <div
-            className="post-preview__description"
-            dangerouslySetInnerHTML={{
-              __html: post.excerpt.replace(/<p class="link-more.*/, ''),
-            }}
-          />
-        </Truncate>
-        <ReadMoreButton className="btn btn-grey btn-large" to={post.slug}>
-          Czytaj Dalej →
-        </ReadMoreButton>
-      </div>
-    </PostItemContent>
-  </PostItemWrapper>
-)
-
-const ReadMoreButton = styled(Link)`
-  display: block;
-  margin-top: 10px;
-`
 
 const Temp = ({ post }) => (
   <div className="panel" key={post.id}>
@@ -114,10 +61,13 @@ export const pageQuery = graphql`
         wordpress_48
       }
     }
+    categories {
+      name
+    }
     featured_media {
       localFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
+          fluid {
             ...GatsbyImageSharpFluid
           }
         }

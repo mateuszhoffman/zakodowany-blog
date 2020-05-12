@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-wordpress',
       options: {
@@ -19,18 +20,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Add any options here
-      },
-    },
-    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
           {
-            family: `Roboto`,
-            variants: [`400`, `500`, `700`],
+            family: `Montserrat`,
+            variants: [`400`, `600`, `700`],
           },
         ],
       },
@@ -43,6 +38,7 @@ module.exports = {
         anonymize: false,
       },
     },
+
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-netlify', // make sure to keep it last in the array

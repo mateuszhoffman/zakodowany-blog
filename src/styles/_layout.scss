@@ -1,0 +1,35 @@
+body {
+  //   background-image: repeating-linear-gradient(
+  //     45deg,
+  //     #f7f7f7,
+  //     #f7f7f7 2px,
+  //     #eee 2px,
+  //     #eee 3px
+  //   );
+  background-color: #f7fbfb;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.f-center {
+  justify-content: center;
+}
+
+.container {
+  width: 66.66667%;
+  @media only screen and (max-width: 991.98px) {
+    width: 85%;
+  }
+}
+
+.logo {
+  padding: 25px;
+  width: 400px;
+}
+
+footer {
+  margin-bottom: 2rem;
+}
