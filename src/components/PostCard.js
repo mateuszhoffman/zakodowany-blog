@@ -7,6 +7,13 @@ const PostCard = ({ post }) => (
   <article className="post-card flex">
     <div className="post-card__header">
       {post.featured_media && (
+        // <Image
+        //   className="post-card__image"
+        //   objectFit="cover"
+        //   objectPosition="50% 50%"
+        //   fluid={post.featured_media.localFile.childImageSharp.fluid}
+        // />
+
         <Image
           className="post-card__image"
           objectFit="cover"
@@ -19,7 +26,9 @@ const PostCard = ({ post }) => (
       <div className="post-card__meta flex">
         {post.categories &&
           post.categories.map(category => (
-            <div className="category-badge">{category.name}</div>
+            <div key={category.id} className="category-badge">
+              {category.name}
+            </div>
           ))}
         <div className="post-date">{post.date}</div>
       </div>
@@ -29,16 +38,19 @@ const PostCard = ({ post }) => (
       </Link>
 
       <div className="post-card__content">
-        <Truncate lines={3} ellipsis={<span>...</span>}>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: post.excerpt.replace(/<p class="link-more.*/, ''),
-            }}
-          />
-        </Truncate>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: post.excerpt
+              .replace(/<p class="link-more.*/, '')
+              .split(' ')
+              .splice(0, 25)
+              .join(' ')
+              .concat(' ...'),
+          }}
+        />
       </div>
       <div className="author-details flex">
-        <img src="https://avatars3.githubusercontent.com/u/13483854?v=4" />
+        <img src="https://media-exp1.licdn.com/dms/image/C4D03AQEcDLgAabSLTw/profile-displayphoto-shrink_100_100/0?e=1594857600&v=beta&t=04Q8IP60AZXDuX6S6zlZ2QS3LuH0zY0Is4eVvs0Ei3M" />
         <Link to={`/author/${post.author.slug}`}>{post.author.name}</Link>
       </div>
     </div>

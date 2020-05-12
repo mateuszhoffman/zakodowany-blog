@@ -13,6 +13,10 @@
   backface-visibility: hidden;
   flex-direction: row;
 
+  @media only screen and (max-width: 991.98px) {
+    flex-direction: column;
+  }
+
   &:hover {
     transform: scale(1.01);
     transition: all 0.5s ease;
@@ -25,12 +29,20 @@
   .post-card__header {
     min-width: 40%;
     margin: 0;
+
+    @media only screen and (max-width: 991.98px) {
+      flex-direction: column;
+      max-height: 20%;
+    }
   }
 
   .post-card__body {
     flex-direction: column;
     justify-content: center;
     padding: 2.5rem;
+    @media only screen and (max-width: 991.98px) {
+      padding: 1rem;
+    }
   }
 
   .post-card__title {
@@ -39,6 +51,10 @@
     font-weight: 600;
     line-height: 1.125;
     margin-bottom: 1rem;
+    @media only screen and (max-width: 991.98px) {
+      font-size: 1.25rem;
+      margin-bottom: 1rem !important;
+    }
   }
 
   .post-card__meta {
@@ -57,6 +73,10 @@
     font-size: 1em;
     font-weight: 400;
     line-height: 1.5;
+
+    @media only screen and (max-width: 991.98px) {
+      display: none;
+    }
   }
 
   .category-badge {
@@ -94,6 +114,10 @@
     Arial, sans-serif;
   align-items: center;
   font-weight: 700;
+
+  @media only screen and (max-width: 991.98px) {
+    display: none;
+  }
 
   img {
     height: 32px;
