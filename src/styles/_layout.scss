@@ -23,11 +23,19 @@ body {
   @media only screen and (max-width: 991.98px) {
     width: 85%;
   }
+
+  @media only screen and (max-width: 576px) {
+    width: 100%;
+  }
 }
 
 .logo {
   padding: 25px;
   width: 400px;
+
+  @media only screen and (max-width: 576px) {
+    width: 18rem;
+  }
 }
 
 footer {
