@@ -21,7 +21,7 @@ const Header = () => (
 )
 
 const Navbar = ({ data }) => (
-  <nav className="flex f-center">
+  <nav className="flex f-center f-al-start">
     {/* {data.allWordpressPage.edges.map(edge => (
       <div className="navbar-item" to={edge.node.slug} key={edge.node.slug}>
         {edge.node.title}

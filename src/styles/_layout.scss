@@ -12,12 +12,14 @@ body {
 
 .flex {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start; /* fix for Safaru stretching */
 }
 
 .f-center {
   justify-content: center;
+}
+
+.f-al-start {
+  align-items: center;
 }
 
 .container {
