@@ -34,7 +34,12 @@ const PostCard = ({ post }) => (
       </div>
 
       <Link to={post.slug}>
-        <h1 className="post-card__title">{post.title}</h1>
+        <h1
+          className="post-card__title"
+          dangerouslySetInnerHTML={{
+            __html: post.title,
+          }}
+        />
       </Link>
 
       <div className="post-card__content">
