@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Image from 'gatsby-image'
-import Truncate from 'react-truncate'
 
 const PostCard = ({ post }) => (
   <article className="panel--white post-card flex">
