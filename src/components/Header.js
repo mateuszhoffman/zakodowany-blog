@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import Logo from '../components/Logo'
+import Menu from '../components/Menu'
 
 const Header = () => (
   <StaticQuery
@@ -21,14 +22,12 @@ const Header = () => (
 )
 
 const Navbar = ({ data }) => (
-  <nav className="flex f-center f-al-start">
-    {/* {data.allWordpressPage.edges.map(edge => (
-      <div className="navbar-item" to={edge.node.slug} key={edge.node.slug}>
-        {edge.node.title}
-      </div>
-    ))} */}
-    <Logo />
-  </nav>
+  <div className="flex f-center">
+    <nav className="header flex container f-space-between f-al-start">
+      <Logo />
+      <Menu items={data.allWordpressPage.edges} />
+    </nav>
+  </div>
 )
 
 export default Header
