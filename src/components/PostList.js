@@ -15,11 +15,11 @@ export default class IndexPage extends React.Component {
             <PostCard post={post} key={post.id} />
           ))}
         </section>
-        <Pagination
+        {/* <Pagination
           className="pagination"
           pageContext={pageContext}
           pathPrefix="/"
-        />
+        /> */}
       </div>
     )
   }
