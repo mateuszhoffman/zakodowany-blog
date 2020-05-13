@@ -9,6 +9,7 @@ const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet title="Zakodowany by Mateusz Hoffman" />
     <Header />
+
     <div className="flex f-center">{children}</div>
     <Footer />
   </div>
