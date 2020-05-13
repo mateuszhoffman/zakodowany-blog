@@ -1,22 +1,22 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const Menu = ({ items }) => {
-  console.log(items)
-  return (
-    <div className="navbar">
-      {items &&
-        items.map(edge => (
+const Menu = ({ items }) => (
+  <ul class="main-nav" id="js-menu">
+    {items &&
+      items.map(edge => (
+        <li>
           <div
-            className="navbar__item underline--magical"
+            href="#"
+            class="nav-links"
             to={edge.node.slug}
             key={edge.node.slug}
           >
             <Link to={edge.node.slug}>{edge.node.title}</Link>
           </div>
-        ))}
-    </div>
-  )
-}
+        </li>
+      ))}
+  </ul>
+)
 
 export default Menu

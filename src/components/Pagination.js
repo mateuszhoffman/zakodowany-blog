@@ -8,16 +8,16 @@ const Pagination = ({ pageContext, pathPrefix }) => {
     <nav className="pagination" role="navigation">
       <div className="navbar navbar-menu">
         {previousPagePath && (
-          <div className="navbar-item">
+          <div className="navbar__item underline--magical">
             <Link to={previousPagePath} rel="prev">
-              Previous
+              Poprzednia
             </Link>
           </div>
         )}
         {nextPagePath && (
-          <div className="navbar-item">
+          <div className="navbar__item underline--magical">
             <Link to={nextPagePath} rel="next">
-              Next
+              Następna
             </Link>
           </div>
         )}
