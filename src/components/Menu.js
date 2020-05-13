@@ -12,7 +12,9 @@ const Menu = ({ items }) => (
             to={edge.node.slug}
             key={edge.node.slug}
           >
-            <Link to={edge.node.slug}>{edge.node.title}</Link>
+            <Link className="magic-underline" to={edge.node.slug}>
+              {edge.node.title}
+            </Link>
           </div>
         </li>
       ))}
