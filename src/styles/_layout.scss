@@ -55,11 +55,7 @@ body {
 }
 
 .logo {
-  width: 300px;
-
-  @media only screen and (max-width: 576px) {
-    width: 18rem;
-  }
+  width: 200px;
 }
 
 footer {

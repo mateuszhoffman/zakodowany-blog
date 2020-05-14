@@ -2,10 +2,11 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import PostCard from './PostCard'
+import Pagination from '../components/Pagination'
 
 export default class IndexPage extends React.Component {
   render() {
-    const { posts } = this.props
+    const { posts, pageContext } = this.props
 
     return (
       <div className="container">
@@ -14,6 +15,11 @@ export default class IndexPage extends React.Component {
             <PostCard post={post} key={post.id} />
           ))}
         </section>
+        {/* <Pagination
+          className="pagination"
+          pageContext={pageContext}
+          pathPrefix="/"
+        /> */}
       </div>
     )
   }
